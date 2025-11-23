@@ -1,8 +1,77 @@
 <!DOCTYPE html>
 <html>
-<head><title>Meu Dashboard PBI</title></head>
+<head><title>Desafio Maven Analytics</title></head>
 <body>
   <h1>Meu Dashboard Interativo</h1>
+  <h1>This is another challenge from Maven Analytics (https://mavenanalytics.io). The data base simulates the behavior of Cafe Rewards members over a 30-day period, including their transactions and responses to promotional offers. 
+
+
+Key objective for the challenge:
+
+
+After run a test by sending different combinations of promotional offers to existing rewards members, we now have a data base of 30-day period, the task is to identify key customer segments and develop a data-driven strategy for future promotional messaging & targeting. 
+
+Objective:
+
+Find a persona target for a new marketing promotion/campaign after a previous promotion test during 30 days.
+
+Data analysis:
+
+With python and power query I first did a data preparation (extracting, cleaning and formating).
+
+Next step was data modeling and metrics in order to find questions/answers that the data analysis could give (about the events, customer segments, channels and offers).
+
+Assumptions:
+
+There seem to be some errors with customers who are 118 years old with no gender and have no income (removed from the analysis – despite having transactions – to focus on the target persona);
+
+The events per se don’t actually tell me anything about the channel, there’s nothing specifying if it was e-mail, mobile, social media, or all of them together;
+
+In theory, the person receives, sees and completes the offer but there are cases/events where the person has received and completed the offer without having seen it (id customer: 0020c2b971eb4e9188eac86d93036a77 id offer: fafdcd668e3743c1bb461111dcafc2a4 another example: id customer:003d66b6608740288d6cc97a6903f4f0 id offer: 0b1e1539f2cc45b7b9fa7c272da2e1d7).
+
+Findings:
+
+91.18% valid offer transaction;
+
+23.86% of transactions came from offers;
+
+55.60% of received offers was converted;
+
+"bogo" had 57.50% of converted offer in trasaction meanwhile discount offer had a 64.45%;
+
+Although man are the majority of customers, women have highest income and highest mid-ticket;
+
+The more representative age group is 36-65;
+
+Women have the highest percentage of converted offer in transaction as well the group age 65+ (for me was kinda surprisenly);
+
+Tenure doesn´t seen to be relevant for defining the persona because the average tenure is (in general) nearly 7,5 years and doesn´t differ much between age groups. But this info shows that this Cafe should keep these good customers as well to acquire new customers;
+
+It's funny to see some transaction values like $800, $900, or even $1000+ (paying off a big monthly bill?);
+
+Recomendations:
+
+Persona
+
+Marketing has many facets and depends a lot on what you want to do and what audience you want to reach. The data showed me great potential for increasing younger customers. So, base on data analysis, the focus should be on attracting and retaining young female customers and for this I create a "persona target".
+
+Jane Doe, age 26, does not know the Cafe yet, use more social media and mobile and prefer discount vouchers/coupons. 
+
+Marketing campaign/promotion
+
+To attract and retain new customers with a focus on the "persona target" I would launch a promotion discount using cashback and coupons. The ideia is first to have a minimum purchase amount of $10, second, where to use the coupon, the person has to spend at least 3x the value of the coupon they have. Kind of any purchase with 10% cashback. For example, if I make a $10 purchase, I receive a discount coupon worth $1, and to use this discount, I need to spend at least $3 more. In this way, it's more likely to generate repeat purchases and customer loyalty.
+
+Tools used:
+
+Python (data preparation: cleaning and formating the data base):
+
+Power Query (data modeling: creation of dimension tables, grouping tables);
+
+Power BI (data analysis: measures, charts, report);
+
+Excel (.csv database);
+
+PowerPoint (dashboard page structure).</h1>
   <iframe title="Report Cafe Rewards" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiN2Y4NGQ3NzQtNzVjNC00ZDg3LTliMWYtZDliOTE1MmU2ZjFjIiwidCI6IjQ3ZDY4Nzk2LWM2M2UtNGQ3YS1hNTc3LWE2MmFjMWM5MGVlZSIsImMiOjl9" frameborder="0" allowFullScreen="true"></iframe>
 </body>
 </html>
