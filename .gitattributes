@@ -1,0 +1,3 @@
+# Linguagens principais
+*.dax   linguist-language=DAX
+*.m     linguist-language=M
