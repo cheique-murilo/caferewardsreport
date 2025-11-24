@@ -1,0 +1,19 @@
+-- medidas.dax
+-- Medidas básicas para Power BI
+
+Total Vendas := SUM(FatoVendas[Quantidade] * FatoVendas[PrecoUnitario])
+
+Crescimento Ano a Ano :=
+CALCULATE(
+    [Total Vendas],
+    SAMEPERIODLASTYEAR(DimData[Data])
+)
+
+Percentual do Total :=
+DIVIDE([Total Vendas], CALCULATE([Total Vendas], ALL(DimProduto)))
+
+Ranking Produto :=
+RANKX(ALL(DimProduto), [Total Vendas], , DESC)
+
+Vendas YTD :=
+TOTALYTD([Total Vendas], DimData[Data])
