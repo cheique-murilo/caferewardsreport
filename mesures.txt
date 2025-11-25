@@ -1,0 +1,42 @@
+# Mesures examples:
+
+Customers:
+
+% F = DIVIDE(CALCULATE(
+    COUNTROWS(customers),
+    customers[gender] = "F"),COUNTROWS(customers),"verify")
+
+% M = DIVIDE(CALCULATE(
+    COUNTROWS(customers),
+    customers[gender] = "M"),COUNTROWS(customers),"verify")
+
+% O = DIVIDE(CALCULATE(
+    COUNTROWS(customers),
+    customers[gender] = "O"),COUNTROWS(customers),"verify")
+
+Average income = AVERAGE(customers[income])
+
+Events:
+
+% bogo converted = divide([Total bogo completed],[Total bogo received],"verify")
+
+% converted discount = divide([Total discount completed],[Total discount received],"verify")
+
+% converted offers = divide([Offer_Transaction], ([Total bogo received]+[Total discount received]),"verify")
+
+% offer completed from received = DIVIDE([Total offer completed],[Total offer received])
+
+Total bogo completed = CALCULATE(
+    COUNTROWS(new_events_aux),
+    new_events_aux[offer_type] = "bogo" &&
+    new_events_aux[event] = "offer completed")
+
+Total bogo received = CALCULATE(
+    COUNTROWS(new_events_aux),
+    new_events_aux[offer_type] = "bogo" &&
+    new_events_aux[event] = "offer received")
+
+Total bogo received = CALCULATE(
+    COUNTROWS(new_events_aux),
+    new_events_aux[offer_type] = "bogo" &&
+    new_events_aux[event] = "offer received")
